@@ -13,4 +13,5 @@ jobs:
           rosdep update
           rosdep install -i --from-path src --rosdistro humble -y
           colcon build
+          source install/setup.bash
           bash -xv ./src/disk_monitor/test/test.bash /root
