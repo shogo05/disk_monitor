@@ -1,10 +1,13 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2025 Shogo Uchida
+# SPDX-License-Identifier: BSD-3-Clause
+
 dir=~
 [ "$1" != "" ] && dir="$1"
 
 cd $dir/ros2_ws
 colcon build
-source $dir/.bashrc
+source install/setup.bash
 
 # 10秒間実行してログを取る
 timeout 10 ros2 launch disk_monitor monitor.launch.py > /tmp/disk_monitor.log
