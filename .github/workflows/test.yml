@@ -10,6 +10,7 @@ jobs:
         run: |
           rsync -av ./ /root/ros2_ws/src/disk_monitor/
           cd /root/ros2_ws
+          rosdep update
           rosdep install -i --from-path src --rosdistro humble -y
           colcon build
           bash -xv ./src/disk_monitor/test/test.bash /root
